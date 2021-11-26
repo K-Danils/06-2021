@@ -18,10 +18,11 @@ namespace exercise9
             //A sedentary person's weight is considered optimal if his or her BMI is between 18.5 and 25.
             double BMI = (weight * 703.0) / (Math.Pow(height, 2));
 
-            if (BMI < 18.5) { Console.WriteLine("Underweight"); }
-            else if (BMI > 25) { Console.WriteLine("Overweight"); }
-            else { Console.WriteLine("Optimal weight"); }
+            if (BMI <= 18.5) { Console.WriteLine("Underweight");}
+            else if (BMI >= 25) { Console.WriteLine("Overweight");}
+            else { Console.WriteLine("Optimal weight");}
         }
+
         static void Main(string[] args)
         {
             Console.WriteLine("Enter your height: ");

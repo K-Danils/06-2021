@@ -19,12 +19,12 @@ namespace CheckOddEven
                 Console.WriteLine("Odd Number");
             }
         }
+
         static void Main(string[] args)
         {
             CheckOddEven(Int32.Parse(Console.ReadLine()));
             Console.ReadLine();
             Console.WriteLine("bye!");
-            
         }
     }
 }

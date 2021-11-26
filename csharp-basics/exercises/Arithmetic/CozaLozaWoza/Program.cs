@@ -43,7 +43,6 @@ namespace CozaLozaWoza
                     {
                         Console.Write(j+" ");
                     }
-                    
                 }
                 Console.WriteLine();
             }

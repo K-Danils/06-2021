@@ -15,29 +15,27 @@ namespace exercise8
             const float legalMinWage = 8.0f;
             const float legalOvertimeModifier = 1.5f;
             
-                if(basePay< legalMinWage)
-                {
-                    Console.WriteLine("ERROR - The base pay is too little");
-                }
-                else if (workedHours > legalLimitHours)
-                {
-                    Console.WriteLine("ERROR - Too many hours worked");
-                }
+            if(basePay < legalMinWage)
+            {
+                Console.WriteLine("ERROR - The base pay is too little");
+            }
+            else if (workedHours > legalLimitHours)
+            {
+                Console.WriteLine("ERROR - Too many hours worked");
+            }
+            else
+            {
+                if (workedHours <= nonOvertimeHours) { Console.WriteLine("$" + (workedHours * basePay)); }
                 else
                 {
-                    if (workedHours <= nonOvertimeHours) { Console.WriteLine("$" + (workedHours * basePay)); }
-                    else
-                    {
-                        int extraHours = workedHours - nonOvertimeHours;
-                        float extraPay = legalOvertimeModifier * basePay;
-                        float total = (nonOvertimeHours * basePay) + (extraHours * extraPay);
-                        Console.WriteLine("$" + total);
-                    }
+                    int extraHours = workedHours - nonOvertimeHours;
+                    float extraPay = legalOvertimeModifier * basePay;
+                    float total = (nonOvertimeHours * basePay) + (extraHours * extraPay);
+                    Console.WriteLine("$" + total);
                 }
-
-            
-
+            }
         }
+
         static void Main(string[] args)
         {
             Console.Write("Employee {0}, Total pay ", 1);

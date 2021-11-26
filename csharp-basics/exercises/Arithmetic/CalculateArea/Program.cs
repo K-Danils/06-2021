@@ -36,7 +36,8 @@ namespace CalculateArea
             if (keyboard.Key == ConsoleKey.D1)
             {
                 CalculateCircleArea();
-            }else if (keyboard.Key == ConsoleKey.D2)
+            }
+            else if (keyboard.Key == ConsoleKey.D2)
             {
                 CalculateRectangleArea();
             }
@@ -61,7 +62,6 @@ namespace CalculateArea
         {
             // Get input from user
             Console.WriteLine("What is the circle's radius? ");
-            //todo change this radius
             int radius = Int32.Parse(Console.ReadLine());
 
             // Display output
