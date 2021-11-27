@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B8888FDA-9374-41CB-A000-0675A8DC0188}</ProjectGuid>
+    <ProjectGuid>{1C776744-BB79-46D5-906D-1133B9160D35}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>SumAverageRunningInt</RootNamespace>
-    <AssemblyName>SumAverageRunningInt</AssemblyName>
+    <RootNamespace>Product1ToN</RootNamespace>
+    <AssemblyName>Product1ToN</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
