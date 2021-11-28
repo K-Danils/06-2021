@@ -13,7 +13,7 @@ namespace TenBillion
 
             if (long.TryParse(input, out n)) 
             {
-                if (n > 0) 
+                if (n < 0) 
                 {
                     n *= -1;
                 }
@@ -24,40 +24,41 @@ namespace TenBillion
                 }
                 else 
                 {
+                    Console.WriteLine();
                     int digits = 1;
-                    if (input.Length == 2) 
+                    if (n.ToString().Length == 2) 
                     {
                         digits = 2;
                     } 
-                    else if (input.Length == 3) 
+                    else if (n.ToString().Length == 3) 
                     {
                         digits = 3;
                     } 
-                    else if (input.Length == 4) 
+                    else if (n.ToString().Length == 4) 
                     {
                         digits = 4;
                     } 
-                    else if (input.Length == 5) 
+                    else if (n.ToString().Length == 5) 
                     {
                         digits = 5;
                     } 
-                    else if (input.Length == 6) 
+                    else if (n.ToString().Length == 6) 
                     {
                         digits = 6;
                     } 
-                    else if (input.Length == 7) 
+                    else if (n.ToString().Length == 7) 
                     {
                         digits = 7;
                     } 
-                    else if (input.Length == 8) 
+                    else if (n.ToString().Length == 8) 
                     {
                         digits = 8;
                     } 
-                    else if (input.Length == 9) 
+                    else if (n.ToString().Length == 9) 
                     {
                         digits = 9;
                     } 
-                    else if (input.Length == 10) 
+                    else if (n.ToString().Length == 10) 
                     {
                         digits = 10;
                     }
