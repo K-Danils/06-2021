@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LargestNumber", "LargestNum
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TenBillion", "TenBillion\TenBillion.csproj", "{77AB50C0-F0DA-46B0-8299-7AB0B9404B03}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintDayInWord", "PrintDayInWord\PrintDayInWord.csproj", "{52330192-4519-4305-B1FB-C9BB516E595A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneKeyPad", "PhoneKeyPad\PhoneKeyPad.csproj", "{913962A3-7B0C-4354-8A3E-8B53BC57F9CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{77AB50C0-F0DA-46B0-8299-7AB0B9404B03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77AB50C0-F0DA-46B0-8299-7AB0B9404B03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77AB50C0-F0DA-46B0-8299-7AB0B9404B03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52330192-4519-4305-B1FB-C9BB516E595A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52330192-4519-4305-B1FB-C9BB516E595A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52330192-4519-4305-B1FB-C9BB516E595A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52330192-4519-4305-B1FB-C9BB516E595A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{913962A3-7B0C-4354-8A3E-8B53BC57F9CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{913962A3-7B0C-4354-8A3E-8B53BC57F9CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{913962A3-7B0C-4354-8A3E-8B53BC57F9CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{913962A3-7B0C-4354-8A3E-8B53BC57F9CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -6,24 +6,24 @@ namespace VariablesAndNames
     {
         private static void Main(string[] args)
         {
-            int cars, drivers, passengers, cars_not_driven, cars_driven;
-            double seats_in_a_car, carpool_capacity, average_passengers_per_car;
+            int cars, drivers, passengers, carsNotDriver, carsDriven, seatsInCar;
+            double carpoolCapacity, averagePassengersPerCar;
 
-            cars = 100; //cars
-            seats_in_a_car = 4.0; //seats in a car
-            drivers = 28; // drivers
-            passengers = 90; // passengers
-            //cars_not_driven  // free cars
-            //cars_driven ; // cars driven at the moment
-            //carpool_capacity = // carpool capacity
-            //average_passengers_per_car = // average passengers per car
+            cars = 100;
+            seatsInCar = 4;
+            drivers = 28;
+            passengers = 90;
+            carsNotDriver =  cars - drivers; // free cars
+            carsDriven = drivers; // cars driven at the moment
+            carpoolCapacity = seatsInCar * drivers;
+            averagePassengersPerCar =(double)passengers / (double)drivers;
 
-            Console.WriteLine("There are " + cars + " cars available.");
-            Console.WriteLine("There are only " + drivers + " drivers available.");
-            Console.WriteLine("There will be " + cars_not_driven + " empty cars today.");
-            Console.WriteLine("We can transport " + carpool_capacity + " people today.");
-            Console.WriteLine("We have " + passengers + " to carpool today.");
-            Console.WriteLine("We need to put about " + average_passengers_per_car + " in each car.");
+            Console.WriteLine("There are {0} cars available.", cars);
+            Console.WriteLine("There are only {0} drivers available.", drivers);
+            Console.WriteLine("There will be {0} empty cars today.", carsNotDriver);
+            Console.WriteLine("We can transport {0} people today.", carpoolCapacity);
+            Console.WriteLine("We have {0} passengers to carpool today.", passengers);
+            Console.WriteLine("We need to put about {0:0.##} average passengers in each car.", averagePassengersPerCar);
             Console.ReadKey();
         }
     }
