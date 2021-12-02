@@ -72,10 +72,6 @@ namespace Hangman
 
                 guessProgression = "";
             }
-
-
-
-
         }
 
         private static string FindAllGuessedChars(string wordToGuess, string guessProgression, string guess)

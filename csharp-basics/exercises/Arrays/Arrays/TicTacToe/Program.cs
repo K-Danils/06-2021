@@ -127,7 +127,7 @@ namespace TicTacToe
 
         private static void DisplayBoard()
         {
-            Console.WriteLine("Player 1 = 'X' \nPlayer 2 = 'O'\n");
+            Console.WriteLine("Player 2 = 'X' \nPlayer 1 = 'O'\n");
             Console.WriteLine("  0  " + board[0, 0] + "|" + board[0, 1] + "|" + board[0, 2]);
             Console.WriteLine("    --+-+--");
             Console.WriteLine("  1  " + board[1, 0] + "|" + board[1, 1] + "|" + board[1, 2]);
@@ -140,44 +140,16 @@ namespace TicTacToe
         {
             char playerSymbol = player == 1 ? 'O' : 'X';
 
-            //top to bottom middle
-            if (board[0, 1].Equals(playerSymbol) && board[1, 1].Equals(playerSymbol) && board[2, 1].Equals(playerSymbol))
-            {
-                return true;
-            }
-            //top to bottom right
-            else if (board[0, 2].Equals(playerSymbol) && board[1, 2].Equals(playerSymbol) && board[2, 2].Equals(playerSymbol))
-            {
-                return true;
-            }
-            //top to bottom left
-            else if (board[0, 0].Equals(playerSymbol) && board[1, 0].Equals(playerSymbol) && board[2, 0].Equals(playerSymbol))
-            {
-                return true;
-            }
-            // left to right upper line
-            else if (board[0, 0].Equals(playerSymbol) && board[0, 1].Equals(playerSymbol) && board[0, 2].Equals(playerSymbol))
-            {
-                return true;
-            }
-            // left to right middle line
-            else if (board[1, 0].Equals(playerSymbol) && board[1, 1].Equals(playerSymbol) && board[1, 2].Equals(playerSymbol))
-            {
-                return true;
-            }
-            //left to right bottom 
-            else if (board[2, 0].Equals(playerSymbol) && board[2, 1].Equals(playerSymbol) && board[2, 2].Equals(playerSymbol))
-            {
-                return true;
-            }
-            ///diagonaly bottom left to right top
-            else if (board[2, 0].Equals(playerSymbol) && board[1, 1].Equals(playerSymbol) && board[0, 2].Equals(playerSymbol))
-            {
-                return true;
-            }
-            ///diagonaly bottom right to left top
-            else if (board[0, 0].Equals(playerSymbol) && board[1, 1].Equals(playerSymbol) && board[2, 2].Equals(playerSymbol))
-            {
+            if (
+            (board[0, 1].Equals(playerSymbol) && board[1, 1].Equals(playerSymbol) && board[2, 1].Equals(playerSymbol)) ||
+            (board[0, 2].Equals(playerSymbol) && board[1, 2].Equals(playerSymbol) && board[2, 2].Equals(playerSymbol)) ||
+            (board[0, 0].Equals(playerSymbol) && board[1, 0].Equals(playerSymbol) && board[2, 0].Equals(playerSymbol)) ||
+            (board[0, 0].Equals(playerSymbol) && board[0, 1].Equals(playerSymbol) && board[0, 2].Equals(playerSymbol)) ||
+            (board[1, 0].Equals(playerSymbol) && board[1, 1].Equals(playerSymbol) && board[1, 2].Equals(playerSymbol)) ||
+            (board[2, 0].Equals(playerSymbol) && board[2, 1].Equals(playerSymbol) && board[2, 2].Equals(playerSymbol)) ||
+            (board[2, 0].Equals(playerSymbol) && board[1, 1].Equals(playerSymbol) && board[0, 2].Equals(playerSymbol)) ||
+            (board[0, 0].Equals(playerSymbol) && board[1, 1].Equals(playerSymbol) && board[2, 2].Equals(playerSymbol))
+            ){
                 return true;
             }
 
