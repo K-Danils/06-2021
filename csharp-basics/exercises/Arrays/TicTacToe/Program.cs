@@ -15,9 +15,9 @@ namespace TicTacToe
             {
                 DisplayBoard();
 
-                if (CheckForWinner()) {Console.WriteLine("Player {0} has won the game! Press enter to exit.", player); break; }
+                if (CheckForWinner()) { Console.WriteLine("Player {0} has won the game! Press enter to exit.", player); break; }
 
-                if (isDraw()) { Console.WriteLine("The game is a tie! Press enter to exit."); break; }
+                if (IsDraw()) { Console.WriteLine("The game is a tie! Press enter to exit."); break; }
 
                 GameLogic();
                 Console.Clear();
@@ -50,7 +50,7 @@ namespace TicTacToe
             }
         }
 
-        private static bool isDraw()
+        private static bool IsDraw()
         {
             for (int row = 0; row < 3; row++)
             {
@@ -149,10 +149,10 @@ namespace TicTacToe
             (board[2, 0].Equals(playerSymbol) && board[2, 1].Equals(playerSymbol) && board[2, 2].Equals(playerSymbol)) ||
             (board[2, 0].Equals(playerSymbol) && board[1, 1].Equals(playerSymbol) && board[0, 2].Equals(playerSymbol)) ||
             (board[0, 0].Equals(playerSymbol) && board[1, 1].Equals(playerSymbol) && board[2, 2].Equals(playerSymbol))
-            ){
+            )
+            { 
                 return true;
             }
-
             return false;
         }
     }
