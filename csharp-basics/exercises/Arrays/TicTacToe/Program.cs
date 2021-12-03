@@ -140,20 +140,14 @@ namespace TicTacToe
         {
             char playerSymbol = player == 1 ? 'O' : 'X';
 
-            if (
-            (board[0, 1].Equals(playerSymbol) && board[1, 1].Equals(playerSymbol) && board[2, 1].Equals(playerSymbol)) ||
+            return (board[0, 1].Equals(playerSymbol) && board[1, 1].Equals(playerSymbol) && board[2, 1].Equals(playerSymbol)) ||
             (board[0, 2].Equals(playerSymbol) && board[1, 2].Equals(playerSymbol) && board[2, 2].Equals(playerSymbol)) ||
             (board[0, 0].Equals(playerSymbol) && board[1, 0].Equals(playerSymbol) && board[2, 0].Equals(playerSymbol)) ||
             (board[0, 0].Equals(playerSymbol) && board[0, 1].Equals(playerSymbol) && board[0, 2].Equals(playerSymbol)) ||
             (board[1, 0].Equals(playerSymbol) && board[1, 1].Equals(playerSymbol) && board[1, 2].Equals(playerSymbol)) ||
             (board[2, 0].Equals(playerSymbol) && board[2, 1].Equals(playerSymbol) && board[2, 2].Equals(playerSymbol)) ||
             (board[2, 0].Equals(playerSymbol) && board[1, 1].Equals(playerSymbol) && board[0, 2].Equals(playerSymbol)) ||
-            (board[0, 0].Equals(playerSymbol) && board[1, 1].Equals(playerSymbol) && board[2, 2].Equals(playerSymbol))
-            )
-            { 
-                return true;
-            }
-            return false;
+            (board[0, 0].Equals(playerSymbol) && board[1, 1].Equals(playerSymbol) && board[2, 2].Equals(playerSymbol));
         }
     }
 }
