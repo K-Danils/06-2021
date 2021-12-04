@@ -4,16 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankAccount
+namespace Exercise7
 {
     class Program
     {
         static void Main(string[] args)
         {
-            BankAccount benben = new BankAccount("Benson", -17.50f);
-
-            benben.ShowUserNameAndBalance();
-            Console.ReadKey();
+            DogTest dogTest = new DogTest();
         }
     }
 }

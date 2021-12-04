@@ -4,15 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankAccount
+namespace Exercise5
 {
     class Program
     {
         static void Main(string[] args)
         {
-            BankAccount benben = new BankAccount("Benson", -17.50f);
+            Date date = new Date(12,12,2001);
 
-            benben.ShowUserNameAndBalance();
+            date.DisplayDate();
+
+            date.day = 21;
+            date.month = 3;
+            date.year = 2100;
+
+            date.DisplayDate();
+
             Console.ReadKey();
         }
     }

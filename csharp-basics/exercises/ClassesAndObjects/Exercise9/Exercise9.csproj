@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{40352489-4287-4C39-879A-55BB1A9ED983}</ProjectGuid>
+    <ProjectGuid>{5DFE4549-6625-4F4B-8089-5395E9ABE358}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>VideoStore</RootNamespace>
-    <AssemblyName>VideoStore</AssemblyName>
+    <RootNamespace>Exercise9</RootNamespace>
+    <AssemblyName>Exercise9</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,11 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Point.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Video.cs" />
-    <Compile Include="VideoStore.cs" />
-    <Compile Include="VideoStoreTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
