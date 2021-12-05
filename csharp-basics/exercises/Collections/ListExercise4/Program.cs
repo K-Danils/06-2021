@@ -19,14 +19,15 @@ namespace ListExercise4
                 "White",
                 "Black"
             };
+            
+            string element = colors.ElementAt(0);
 
-            //fixme
-            //string element = ...;
-            //Console.WriteLine("First element: " + element);
+            Console.WriteLine("First element: " + element);
+            
+            element = colors.ElementAt(2);
+            Console.WriteLine("Third element: " + element);
 
-            //fixme
-            //element = ...;
-            //Console.WriteLine("Third element: " + element);
+            Console.ReadKey();
         }
     }
 }

@@ -10,7 +10,19 @@ namespace WordCount
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string path = @"E:\codelex\CODELEX_UZDEVUMI\06-2021\csharp-basics\exercises\Collections\WordCount\lear.txt";
+            string text = System.IO.File.ReadAllText(path);
+            var lines = System.IO.File.ReadAllLines(path);
+            string[] words = text.Replace("\r\n", " ").Split(' ');
+            string[] words2 = text.Replace("\r\n", " ").Split('\'');
+            string characters = text.Replace("\r\n","");
+
+            Console.WriteLine(text);
+            Console.WriteLine("Lines = " + lines.Length);
+            Console.WriteLine("Words = " + (words.Length - 1 + words2.Length - 1));
+
+            Console.WriteLine("Chars = " + characters.Length);
+            Console.ReadKey();
         }
     }
 }

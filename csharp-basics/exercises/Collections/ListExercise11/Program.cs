@@ -10,19 +10,29 @@ namespace ListExercise11
     {
         static void Main(string[] args)
         {
-            //TODO: Create an List with string elements
+            var words = new List<String>
+            {
+                "money",
+                "ice cream",
+                "book",
+                "computer",
+                "notes",
+                "monitor",
+                "phone",
+                "tree",
+                "apple",
+                "chocolate"
+            };
 
-            //TODO: Add 10 values to list
+            words.Insert(4, "dog");
+            words[words.Count - 1] = "keyboard";
+            words.Sort();
 
-            //TODO: Add new value at 5th position
+            bool containsFoobar = words.Contains("Foobar");
 
-            //TODO: Change value at last position (Calculate last position programmatically)
+            words.ForEach(x => Console.WriteLine(x));
 
-            //TODO: Sort your list in alphabetical order
-
-            //TODO: Check if your list contains "Foobar" element
-
-            //TODO: Print each element of list using loop
+            Console.ReadKey();
         }
     }
 }
