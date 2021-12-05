@@ -8,20 +8,20 @@ namespace Exercise4
 {
     class Movie
     {
-        string title;
+        private string _title;
         string studio;
         string rating;
 
         public Movie(string title, string studio, string rating)
         {
-            this.title = title;
+            _title = title;
             this.studio = studio;
             this.rating = rating;
         }
 
         public Movie(string title, string studio)
         {
-            this.title = title;
+            this._title = title;
             this.studio = studio;
             rating = "PG";
         }

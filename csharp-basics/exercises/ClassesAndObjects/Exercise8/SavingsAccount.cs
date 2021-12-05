@@ -8,7 +8,7 @@ namespace Exercise8
 {
     class SavingsAccount
     {
-        public float startingBalance { get; }
+        private float _startingBalance { get; }
         public float currentBalance { get; private set; }
         public float withdrawn { get; private set; } = 0;
         public float deposited { get; private set; } = 0;
@@ -18,7 +18,7 @@ namespace Exercise8
 
         public SavingsAccount(float startingBalance, float yearlyInterest)
         {
-            this.startingBalance = startingBalance;
+            _startingBalance = startingBalance;
             currentBalance = startingBalance;
             monthlyInterest = yearlyInterest / 12.0f;
         }

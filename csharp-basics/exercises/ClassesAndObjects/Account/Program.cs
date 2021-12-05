@@ -23,8 +23,8 @@ namespace Account
             Account B = new Account("B", 0);
             Account C = new Account("C", 0);
 
-            Transfer(ref A, ref B, 50);
-            Transfer(ref B, ref C, 25);
+            Transfer(A, B, 50);
+            Transfer(B, C, 25);
 
             Console.WriteLine(A.Balance());
             Console.WriteLine(B.Balance());
@@ -33,7 +33,7 @@ namespace Account
             Console.ReadLine();
         }
 
-        public static void Transfer(ref Account from, ref Account to, double howMuch)
+        public static void Transfer(Account from,Account to, double howMuch)
         {
             to.Deposit(howMuch);
             from.Withdrawal(howMuch);

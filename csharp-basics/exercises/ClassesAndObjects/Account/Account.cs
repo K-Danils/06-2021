@@ -1,4 +1,6 @@
-﻿namespace Account
+﻿using System;
+
+namespace Account
 {
     class Account
     {
@@ -14,7 +16,7 @@
         public double Withdrawal(double i)
         {
             if (_money - i > 0) { _money -= i; }
-            else { System.Console.WriteLine("Not enough money"); }
+            else { Console.WriteLine("Not enough money"); }
             return _money;
         }
 

@@ -8,19 +8,18 @@ namespace Exercise9
 {
     class Program
     {
-        
-
         static void Main(string[] args)
         {
             Point p1 = new Point(5, 2);
             Point p2 = new Point(-3, 6);
-            SwapPoints(ref p1, ref p2);
+
+            SwapPoints(p1, p2);
             Console.WriteLine("(" + p1.x + ", " + p1.y + ")");
             Console.WriteLine("(" + p2.x + ", " + p2.y + ")");
             Console.ReadKey();
         }
         
-        static void SwapPoints(ref Point p1, ref Point p2)
+        static void SwapPoints(Point p1, Point p2)
         {
             Point temp = new Point(p1.x, p1.y);
 
