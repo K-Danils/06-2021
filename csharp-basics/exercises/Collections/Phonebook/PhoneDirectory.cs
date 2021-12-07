@@ -35,7 +35,7 @@ namespace PhoneBook
             }
             else 
             {
-                var newEntry = new PhoneEntry {name = name, number = number}; // Create a new pair.
+                var newEntry = new PhoneEntry {Name = name, Number = number}; // Create a new pair.
                 _data.Add(name, number);   // Add the new pair to the array.
             }
         }

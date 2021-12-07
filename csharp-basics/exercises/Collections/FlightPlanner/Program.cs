@@ -9,7 +9,7 @@ namespace FlightPlanner
 {
     class Program
     {
-        private const string Path = @"E:\codelex\CODELEX_UZDEVUMI\06-2021\csharp-basics\exercises\Collections\FlightPlanner\flights.txt";
+        private const string Path = @"E:/codelex/CODELEX_UZDEVUMI/06-2021/csharp-basics/exercises/Collections/FlightPlanner/flights.txt";
 
         private static void Main(string[] args)
         {
