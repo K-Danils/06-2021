@@ -3,8 +3,8 @@
     public class Car
     {
         double startKilometers;
-        public double endKilomteters;
-        public double liters;
+        double endKilomteters;
+        double liters;
 
         public Car(double startOdo)
         {

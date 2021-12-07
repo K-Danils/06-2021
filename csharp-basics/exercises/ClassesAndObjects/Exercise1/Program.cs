@@ -8,25 +8,30 @@ namespace Exercise1
 {
     class Product
     {
-        public double price { get; private set; }
-        public int amount;
-        string name;
-
+        private string _name;
+        public double Price { get; private set; }
+        public int Amount { get; private set; }
+ 
         public Product(string name, double price, int amount)
         {
-            this.price = price;
-            this.amount = amount;
-            this.name = name;
+            Price = price;
+            Amount = amount;
+            _name = name;
         }
 
         public void ChangePrice(double price)
         {
-            this.price = price;
+            Price = price;
+        }
+
+        public void ChangeAmount(int amount)
+        {
+            Amount = amount;
         }
 
         public void PrintProduct()
         {
-            Console.WriteLine("{0}, price {1:.##}, amount {2}", this.name, this.price, this.amount);
+            Console.WriteLine("{0}, price {1:.##}, amount {2}", _name, Price, Amount);
         }
     }
 
@@ -49,7 +54,7 @@ namespace Exercise1
             product2.PrintProduct();
             product3.PrintProduct();
 
-            product1.amount = 5;
+            product1.ChangeAmount(5);
             product1.ChangePrice(75.99);
 
             Console.WriteLine("Changed product: ");

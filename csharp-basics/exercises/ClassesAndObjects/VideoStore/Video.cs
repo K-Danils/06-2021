@@ -5,12 +5,12 @@ namespace VideoStore
     class Video
     {
         bool isCheckedOut;
+        public string Title { get; private set; }
         List<double> ratings = new List<double>();
-        public string Title { get; }
 
         public Video(string title)
         {
-            this.Title = title;
+            Title = title;
         }
 
         public void BeingCheckedOut()

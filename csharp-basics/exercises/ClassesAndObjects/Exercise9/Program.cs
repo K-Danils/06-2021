@@ -14,21 +14,20 @@ namespace Exercise9
             Point p2 = new Point(-3, 6);
 
             SwapPoints(p1, p2);
-            Console.WriteLine("(" + p1.x + ", " + p1.y + ")");
-            Console.WriteLine("(" + p2.x + ", " + p2.y + ")");
+            Console.WriteLine("(" + p1.X + ", " + p1.Y + ")");
+            Console.WriteLine("(" + p2.X + ", " + p2.Y + ")");
             Console.ReadKey();
         }
         
         static void SwapPoints(Point p1, Point p2)
         {
-            Point temp = new Point(p1.x, p1.y);
+            Point temp = new Point(p1.X, p1.Y);
 
-            p1.x = p2.x;
-            p1.y = p2.y;
+            p1.X = p2.X;
+            p1.Y = p2.Y;
 
-            p2.x = temp.x;
-            p2.y = temp.y;
-            
+            p2.X = temp.X;
+            p2.Y = temp.Y;
         }
     }
 }

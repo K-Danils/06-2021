@@ -8,22 +8,22 @@ namespace Exercise4
 {
     class Movie
     {
-        private string _title;
-        string studio;
-        string rating;
+        public string Title { get; private set; }
+        public string Studio { get; private set; }
+        public string Rating { get; private set; }
 
         public Movie(string title, string studio, string rating)
         {
-            _title = title;
-            this.studio = studio;
-            this.rating = rating;
+            Title = title;
+            Studio = studio;
+            Rating = rating;
         }
 
         public Movie(string title, string studio)
         {
-            this._title = title;
-            this.studio = studio;
-            rating = "PG";
+            Title = title;
+            Studio = studio;
+            Rating = "PG";
         }
 
         public static Movie[] GetPG(Movie[] movies)
@@ -32,7 +32,7 @@ namespace Exercise4
 
             foreach (Movie movie in movies)
             {
-                if (movie.rating == "PG")
+                if (movie.Rating == "PG")
                 {
                     result.Add(movie);
                 }

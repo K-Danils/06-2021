@@ -5,18 +5,18 @@ namespace VideoStore
 {
     class VideoStore
     {
-        List<Video> videosInStore = new List<Video>();
+        private List<Video> _videosInStore = new List<Video>();
 
         public VideoStore(){}
 
         public void AddVideo(string title)
         {
-            videosInStore.Add(new Video(title));
+            _videosInStore.Add(new Video(title));
         }
         
         public void Checkout(string title)
         {
-            foreach (Video video in videosInStore)
+            foreach (Video video in _videosInStore)
             {
                 if (video.Title == title) { video.BeingCheckedOut(); return; }
             }
@@ -26,7 +26,7 @@ namespace VideoStore
 
         public void ReturnVideo(string title)
         {
-            foreach (Video video in videosInStore)
+            foreach (Video video in _videosInStore)
             {
                 if (video.Title == title) { video.BeingReturned(); return; }
             }
@@ -36,7 +36,7 @@ namespace VideoStore
 
         public void TakeUsersRating(double rating, string title)
         {
-            foreach (Video video in videosInStore)
+            foreach (Video video in _videosInStore)
             {
                 if (video.Title == title) { video.ReceivingRating(rating); return; }
             }
@@ -46,7 +46,7 @@ namespace VideoStore
 
         public void ListInventory()
         {
-            foreach (Video video in videosInStore)
+            foreach (Video video in _videosInStore)
             {
                 if (video.Available())
                 {

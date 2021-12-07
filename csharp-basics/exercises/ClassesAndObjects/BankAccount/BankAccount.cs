@@ -8,22 +8,22 @@ namespace BankAccount
 {
     class BankAccount
     {
-        public string name { get; private set; }
-        public float balance { get; private set; }
+        private string _name;
+        private float _balance;
 
         public BankAccount(string name, float balance)
         {
-            this.name = name;
-            this.balance = balance;
+            _name = name;
+            _balance = balance;
         }
 
         public void ShowUserNameAndBalance()
         {
-            if (balance > 0) { Console.WriteLine("{0}, {1:C2}", name, balance); }
+            if (_balance > 0) { Console.WriteLine("{0}, {1:C2}", _name, _balance); }
             else
             {
-                float tempBalance = balance * -1;
-                Console.WriteLine("{0}, -{1:C2}", name, tempBalance);
+                float tempBalance = _balance * -1;
+                Console.WriteLine("{0}, -{1:C2}", _name, tempBalance);
 
             }
         }

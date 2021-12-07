@@ -1,46 +1,42 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Exercise3
 {
     class Odometer
     {
-        int mileage;
-        int startingMileage;
-        int maxMileage = 999999;
+        private int _mileage;
+        private int _startingMileage;
+        const int maxMileage = 999999;
         int consumption = 10;
-        public FuelGauge fuelGauge;
+        public FuelGauge FuelControl;
 
         public Odometer(int fuel, int mileage)
         {
-            this.mileage = mileage;
-            startingMileage = mileage;
-            fuelGauge = new FuelGauge(fuel);
+            _mileage = mileage;
+            _startingMileage = mileage;
+            FuelControl = new FuelGauge(fuel);
         }
 
         public void ShowMileage()
         {
-            Console.WriteLine(this.mileage);
+            Console.WriteLine(_mileage);
         }
 
         public void IncreaseMileage()
         {
-            if (this.mileage == this.maxMileage)
+            if (_mileage == maxMileage)
             {
-                this.mileage = 0;
+                _mileage = 0;
             }
             else
             {
-                this.mileage++;
+                _mileage++;
             }
 
-            if (mileage - startingMileage >= consumption)
+            if (_mileage - _startingMileage >= consumption)
             {
-                fuelGauge.DecreaseFuel();
-                startingMileage = mileage;
+                FuelControl.DecreaseFuel();
+                _startingMileage = _mileage;
             }
         }
     }

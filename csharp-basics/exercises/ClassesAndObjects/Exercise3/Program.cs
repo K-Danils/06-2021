@@ -13,7 +13,7 @@ namespace Exercise3
             int fuel = 20;
             Odometer odometer = new Odometer(fuel, 100);
 
-            while (odometer.fuelGauge.ShowFuel() > 0)
+            while (odometer.FuelControl.ShowFuel() > 0)
             {
                 odometer.IncreaseMileage();
 
@@ -21,7 +21,7 @@ namespace Exercise3
                 odometer.ShowMileage();
 
                 Console.Write("Fuel: ");
-                odometer.fuelGauge.ShowFuel();
+                odometer.FuelControl.ShowFuel();
             }
 
             Console.ReadKey();

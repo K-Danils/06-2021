@@ -5,7 +5,7 @@ namespace Account
     class Account
     {
         private double _money;
-        public string Name { get; set; }
+        public string Name { get; private set; }
 
         public Account(string v1, double v2)
         {
