@@ -8,20 +8,38 @@ namespace Exercise5
 {
     class Date
     {
-        public int Month { get; set; }
-        public int Day { get; set; }
-        public int Year { get; set; }
+        private int _month;
+        private int _day;
+        private int _year;
+
+        public int Month
+        {
+            get => _month;
+            set => _month = value;
+        }
+
+        public int Year
+        {
+            get => _day;
+            set => _day = value;
+        }
+
+        public int Day
+        {
+            get => _day;
+            set => _day = value;
+        }
 
         public Date(int day, int month, int year)
         {
-            Day = day;
-            Month = month;
-            Year = year;
+            _day = day;
+            _month = month;
+            _year = year;
         }
 
         public void DisplayDate()
         {
-            Console.WriteLine("{0}/{1}/{2}", Day, Month, Year);
+            Console.WriteLine("{0}/{1}/{2}", _day, _month, _year);
         }
     }
 }
