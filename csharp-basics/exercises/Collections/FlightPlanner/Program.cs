@@ -9,11 +9,10 @@ namespace FlightPlanner
 {
     class Program
     {
-        private const string Path = @"E:/codelex/CODELEX_UZDEVUMI/06-2021/csharp-basics/exercises/Collections/FlightPlanner/flights.txt";
-
         private static void Main(string[] args)
         {
-            var readText = File.ReadAllLines(Path);
+            string path = Path.GetFullPath("../../flights.txt");
+            var readText = File.ReadAllLines(path);
             var flights = new Dictionary<string, string>();
             var cities = new List<string>();
             string startingCity;

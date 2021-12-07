@@ -9,11 +9,10 @@ namespace Histogram
 {
     class Program
     {
-        private const string Path = @"E:/codelex/CODELEX_UZDEVUMI/06-2021/csharp-basics/exercises/Collections/Histogram/midtermscores.txt";
-
         private static void Main(string[] args)
         {
-            var readText = File.ReadAllText(Path);
+            string path = Path.GetFullPath("../../midtermscores.txt");
+            var readText = File.ReadAllText(path);
             var scores = new List<int>();
             var histogram = new string[11];
             var stringScores = readText.Split(' ').ToList();
