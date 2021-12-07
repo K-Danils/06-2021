@@ -12,7 +12,7 @@ namespace BankAccount
         {
             BankAccount benben = new BankAccount("Benson", -17.50f);
 
-            benben.ShowUserNameAndBalance();
+            benben.PrintUserNameAndBalance();
             Console.ReadKey();
         }
     }

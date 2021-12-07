@@ -29,12 +29,7 @@ namespace Exercise7
 
         public string FathersName()
         {
-            if (_father == null)
-            {
-                return "Unknown";
-            }
-
-            return _father;
+            return _father == null ? "Unknown" : _father;
         }
 
         public bool HasSameMotherAs(Dog otherDog)

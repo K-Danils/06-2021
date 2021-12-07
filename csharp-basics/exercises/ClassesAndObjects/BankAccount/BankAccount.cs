@@ -17,14 +17,13 @@ namespace BankAccount
             _balance = balance;
         }
 
-        public void ShowUserNameAndBalance()
+        public void PrintUserNameAndBalance()
         {
             if (_balance > 0) { Console.WriteLine("{0}, {1:C2}", _name, _balance); }
             else
             {
                 float tempBalance = _balance * -1;
                 Console.WriteLine("{0}, -{1:C2}", _name, tempBalance);
-
             }
         }
     }
