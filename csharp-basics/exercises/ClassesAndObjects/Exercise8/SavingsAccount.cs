@@ -8,39 +8,39 @@ namespace Exercise8
 {
     class SavingsAccount
     {
-        public float startingBalance { get; }
-        public float currentBalance { get; private set; }
-        public float withdrawn { get; private set; } = 0;
-        public float deposited { get; private set; } = 0;
-        public float interestEarned { get; private set; }
+        readonly float _startingBalance;
+        public float CurrentBalance { get; private set; }
+        public float Withdrawn { get; private set; } = 0;
+        public float Deposited { get; private set; } = 0;
+        public float InterestEarned { get; private set; }
         float monthlyInterest;
 
 
         public SavingsAccount(float startingBalance, float yearlyInterest)
         {
-            this.startingBalance = startingBalance;
-            currentBalance = startingBalance;
+            _startingBalance = startingBalance;
+            CurrentBalance = startingBalance;
             monthlyInterest = yearlyInterest / 12.0f;
         }
 
         public void Withdraw(float amount)
         {
-            withdrawn += amount;
-            currentBalance += amount;
+            Withdrawn += amount;
+            CurrentBalance -= amount;
         }
 
         public void Deposit(float amount)
         {
-            deposited += amount;
-            currentBalance -= amount;
+            Deposited += amount;
+            CurrentBalance += amount;
         }
 
         public void AddMonthlyInterest()
         {
-            float interest = (currentBalance * monthlyInterest);
+            float interest = (CurrentBalance * monthlyInterest);
 
-            interestEarned += interest;
-            currentBalance += interest;
+            InterestEarned += interest;
+            CurrentBalance += interest;
         }
     }
 }

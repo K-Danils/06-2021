@@ -25,7 +25,7 @@ namespace Exercise8
                 Console.Write("Enter amount deposited for month: " + i + " : ");
                 amount = float.Parse(Console.ReadLine());
                 savingsAccount.Deposit(amount);
-
+                
                 Console.Write("Enter amount withdrawn for month: " + i + " : ");
                 amount = float.Parse(Console.ReadLine());
                 savingsAccount.Withdraw(amount);
@@ -33,10 +33,10 @@ namespace Exercise8
                 savingsAccount.AddMonthlyInterest();
             }
 
-            Console.WriteLine("Total deposited: {0:C2}", savingsAccount.deposited);
-            Console.WriteLine("Total withdrawn: {0:C2}", savingsAccount.withdrawn);
-            Console.WriteLine("Interest earned: {0:C2}", savingsAccount.interestEarned);
-            Console.WriteLine("Ending Balance: {0:C2}", savingsAccount.currentBalance);
+            Console.WriteLine("Total deposited: {0:C2}", savingsAccount.Deposited);
+            Console.WriteLine("Total withdrawn: {0:C2}", savingsAccount.Withdrawn);
+            Console.WriteLine("Interest earned: {0:C2}", savingsAccount.InterestEarned);
+            Console.WriteLine("Ending Balance: {0:C2}", savingsAccount.CurrentBalance);
 
             Console.ReadKey();
         }

@@ -1,9 +1,11 @@
-﻿namespace Account
+﻿using System;
+
+namespace Account
 {
     class Account
     {
         private double _money;
-        public string Name { get; set; }
+        public string Name { get; private set; }
 
         public Account(string v1, double v2)
         {
@@ -14,7 +16,7 @@
         public double Withdrawal(double i)
         {
             if (_money - i > 0) { _money -= i; }
-            else { System.Console.WriteLine("Not enough money"); }
+            else { Console.WriteLine("Not enough money"); }
             return _money;
         }
 

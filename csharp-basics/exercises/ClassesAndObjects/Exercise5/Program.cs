@@ -14,9 +14,9 @@ namespace Exercise5
 
             date.DisplayDate();
 
-            date.day = 21;
-            date.month = 3;
-            date.year = 2100;
+            date.Day = 21;
+            date.Month = 3;
+            date.Year = 2100;
 
             date.DisplayDate();
 

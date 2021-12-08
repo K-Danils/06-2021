@@ -24,7 +24,7 @@ namespace FlightPlanner
             Console.WriteLine("To display list of cities press 1: ");
             Console.WriteLine("To exit program press #");
 
-            bool runLoop = Console.ReadLine() == "1";
+            bool shouldLoopRun = Console.ReadLine() == "1";
 
             ShowAllAvailableFlights(flights);
 
@@ -35,7 +35,7 @@ namespace FlightPlanner
 
             Console.WriteLine("Available Cities: " + flights[startingCity].Remove(flights[startingCity].Length - 2));
 
-            while (runLoop)
+            while (shouldLoopRun)
             {
                 Console.WriteLine();
                 Console.Write("Input the city you wish to go to: ");

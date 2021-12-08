@@ -10,8 +10,8 @@ namespace Exercise3
     {
         int mileage;
         int startingMileage;
-        int maxMileage = 999999;
-        int consumption = 10;
+        const int maxMileage = 999999;
+        const int consumption = 10;
         public FuelGauge fuelGauge;
 
         public Odometer(int fuel, int mileage)
@@ -23,18 +23,18 @@ namespace Exercise3
 
         public void ShowMileage()
         {
-            Console.WriteLine(this.mileage);
+            Console.WriteLine(mileage);
         }
 
         public void IncreaseMileage()
         {
-            if (this.mileage == this.maxMileage)
+            if (mileage == maxMileage)
             {
-                this.mileage = 0;
+                mileage = 0;
             }
             else
             {
-                this.mileage++;
+                mileage++;
             }
 
             if (mileage - startingMileage >= consumption)
