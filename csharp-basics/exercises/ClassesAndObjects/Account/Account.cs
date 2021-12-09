@@ -1,23 +1,28 @@
-﻿namespace Account
+﻿using System;
+
+namespace Account
 {
     class Account
     {
-        private string _name;
         private double _money;
+        public string Name { get; private set; }
 
         public Account(string v1, double v2)
         {
-            
+            Name = v1;
+            _money = v2;
         }
 
         public double Withdrawal(double i)
         {
-            return i;
+            if (_money - i > 0) { _money -= i; }
+            else { Console.WriteLine("Not enough money"); }
+            return _money;
         }
 
         public void Deposit(double i)
         {
-            
+            _money += i;
         }
 
         public double Balance()
@@ -27,13 +32,7 @@
 
         public override string ToString()
         {
-            return $"{_name}: {_money}";
-        }
-
-        public string Name
-        {
-            get => _name;
-            set => _name = value;
+            return $"{Name}: {_money}";
         }
     }
 }
