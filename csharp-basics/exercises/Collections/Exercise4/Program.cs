@@ -16,13 +16,14 @@ namespace Exercise4
             
             while (true)
             {
-                numbers.ForEach(num => sum += (int)Math.Pow(int.Parse(num.ToString()), 2));
+                numbers = numbers.Sum(num => (int)Math.Pow(int.Parse(num.ToString()), 2)).ToString().ToCharArray().ToList();
 
-                if (sum == 1) { Console.WriteLine("Number {0} is happy", input); break; }
-                else if (sum == int.Parse(input)) { Console.WriteLine("Number {0} is not happy", input); break; }
+                if (int.Parse(String.Join("", numbers)) == 1) { Console.WriteLine("Number {0} is happy", input); break; }
+                else if (int.Parse(String.Join("", numbers)) == int.Parse(input)) { Console.WriteLine("Number {0} is not happy", input); break; }
 
-                numbers = sum.ToString().ToCharArray().ToList();
-                sum = 0;
+                Console.WriteLine(int.Parse(String.Join("", numbers)));
+                //numbers = sum.ToString().ToCharArray().ToList();
+                //sum = 0;
             }
 
             Console.ReadKey();
