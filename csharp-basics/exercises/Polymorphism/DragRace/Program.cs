@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DragRace
 {
@@ -15,10 +19,44 @@ namespace DragRace
  * 5. Iterate over the list 10 times, in the 3rd iteration use speed boost on the car if they have one.
  * 6. Print out the car name and speed of the fastest car
  */
-
-        private static void Main(string[] args)
+        static void Main(string[] args)
         {
-            
+            var cars = new List<Car> {
+            new Alpine(),
+            new Audi(),
+            new Bmw(),
+            new Lexus(),
+            new Tesla(),
+            new Toyota(),
+            };
+
+            for (int i = 1; i <= 10; i++)
+            {
+                foreach (var car in cars)
+                {
+                    if (i == 1) { car.StartEngine(); continue; }
+
+                    if (i == 3)
+                    {
+                        if (car is IBoostable)
+                        {
+                            ((IBoostable)car).UseNitrousOxideEngine();
+                            continue;
+                        }
+                    }
+
+                    car.SpeedUp();
+                }
+            }
+
+            cars.ForEach(car => Console.WriteLine(car.GetType().Name + " : " +car.ShowCurrentSpeed()));
+
+            var fastestCar = int.Parse(cars[0].ShowCurrentSpeed());
+
+            cars.ForEach(car => fastestCar = int.Parse(car.ShowCurrentSpeed()) > fastestCar ? int.Parse(car.ShowCurrentSpeed()) : fastestCar);
+
+            Console.WriteLine("Fastest speed: " + fastestCar);
+            Console.ReadKey();
         }
     }
 }

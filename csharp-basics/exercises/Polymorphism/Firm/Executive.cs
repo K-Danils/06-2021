@@ -12,6 +12,7 @@ namespace Firm
         {
             _bonus = 0; // bonus has yet to be awarded
         }
+
         //-----------------------------------------------------------------
         // Awards the specified bonus to this executive.
         //-----------------------------------------------------------------

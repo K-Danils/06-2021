@@ -1,29 +1,22 @@
-using System;
+﻿using System;
 
 namespace DragRace
 {
-    public class Audi
+    public class Audi : Car
     {
-        private int currentSpeed = 0;
+        override public int SpeedIncrease { get;}
+        override public int SpeedDecrease { get;}
 
-        public void SpeedUp() 
+        public Audi()
         {
-            currentSpeed;
+            SpeedIncrease = 15;
+            SpeedDecrease = 10;
         }
 
-        public void SlowDown() 
-        {
-            currentSpeed;
-        }
-
-        public string ShowCurrentSpeed() 
-        {
-            return currentSpeed.ToString();
-        }
-
-        public void StartEngine() 
+        override public void StartEngine()
         {
             Console.WriteLine("Rrrrrrr.....");
         }
+
     }
 }

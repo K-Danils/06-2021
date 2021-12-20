@@ -1,11 +1,17 @@
 namespace AdApp
 {
-    public class TVAd: Advert
+    public class Hoarding: Advert
     {
-        public TVAd(int fee) : base(fee)
+        private int _rate;
+        //per day
+        private int _numDays;
+
+        public Hoarding(int fee, int days, int rate) : base(fee)
         {
+            _numDays = days;
+            _rate = rate;
         }
-        
+
         public new int Cost() 
         {
             return base.Cost();

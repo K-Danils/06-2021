@@ -13,7 +13,7 @@ namespace Exercise4
             int sum = 0;
             string input = Console.ReadLine();
             var numbers = input.ToCharArray().ToList();
-            
+
             while (true)
             {
                 numbers.ForEach(num => sum += (int)Math.Pow(int.Parse(num.ToString()), 2));
