@@ -16,7 +16,6 @@ namespace CalculateArea
 
         public static int GetMenu()
         {
-
             int userChoice = 0;
             
 

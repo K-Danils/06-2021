@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hierarchy
 {
-    class Tiger : Felime
+    public class Tiger : Felime
     {
         public Tiger(string name, string animalType, double weight, string livingRegion) :
            base(name, animalType, weight, livingRegion)

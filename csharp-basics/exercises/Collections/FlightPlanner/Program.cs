@@ -7,79 +7,143 @@ using System.Threading.Tasks;
 
 namespace FlightPlanner
 {
-    class Program
+    public class Flights
     {
-        private const string Path = @"E:\codelex\CODELEX_UZDEVUMI\06-2021\csharp-basics\exercises\Collections\FlightPlanner\flights.txt";
 
-        private static void Main(string[] args)
+        private Dictionary<string, string> _flights = new Dictionary<string, string>();
+        private List<string> _visitedCities = new List<string>();
+
+        public Dictionary<string, string> FlightsDict { get => _flights; }
+        public List<string> VisitedCities { get => _visitedCities; }
+
+        public Flights()
         {
-            var readText = File.ReadAllLines(Path);
-            var flights = new Dictionary<string, string>();
-            var cities = new List<string>();
-            string startingCity;
-            string destination;
-
-            ConvertFlightsToDictionary(readText, flights);
-
-            Console.WriteLine("What would you like to do? ");
-            Console.WriteLine("To display list of cities press 1: ");
-            Console.WriteLine("To exit program press #");
-
-            bool runLoop = Console.ReadLine() == "1";
-
-            ShowAllAvailableFlights(flights);
-
-            Console.WriteLine();
-            Console.Write("Input the city you wish to start from: ");
-
-            startingCity = Console.ReadLine();
-
-            Console.WriteLine("Available Cities: " + flights[startingCity].Remove(flights[startingCity].Length - 2));
-
-            while (runLoop)
-            {
-                Console.WriteLine();
-                Console.Write("Input the city you wish to go to: ");
-                destination = Console.ReadLine();
-
-                if (destination == startingCity) { break; }
-
-                cities.Add(destination);
-                Console.WriteLine("Available cities: " + flights[destination].Remove(flights[destination].Length - 2));
-            }
-
-            Console.WriteLine();
-            Console.Write("Your flight route: " + startingCity + " -> ");
-
-            cities.ForEach(city => Console.Write(city + " -> "));
-
-            Console.Write(startingCity);
-            Console.ReadKey();
         }
 
-        private static void ConvertFlightsToDictionary(string[] readText, Dictionary<string, string> flights)
+        public void VisitCity(string destination)
         {
+            if (String.IsNullOrEmpty(destination))
+            {
+                throw new ArgumentNullException();
+            }
+            _visitedCities.Add(destination);
+        }
+
+        public string GetAllAvailableFlights()
+        {
+            string res = "";
+            foreach (KeyValuePair<string, string> flight in _flights)
+            {
+                res += flight.Key + " -> " + flight.Value +"\n";
+            }
+
+            return res;
+        }
+
+        public string GetAvailableCities(string destination)
+        {
+            if (String.IsNullOrEmpty(destination))
+            {
+                throw new ArgumentNullException();
+            }
+
+            return _flights.ContainsKey(destination) ? FlightsDict[destination] : throw new Exception("Non defined city given");
+        }
+
+        public string GetVisitedCities()
+        {
+            return String.Join(" -> ", VisitedCities);
+        }
+
+        public void ConvertFlightsToDictionary(string text)
+        {
+            if (String.IsNullOrEmpty(text))
+            {
+                throw new ArgumentNullException();
+            }
+
+            string[] readText = text.Replace("\r", "").Split('\n');
             string startingCity;
             string destination;
 
             for (int i = 0; i < readText.Length; i++)
             {
+                if (!readText[i].Contains(" -> "))
+                {
+                    throw new Exception("Incorrect flight text format was given");
+                }
                 readText[i] = readText[i].Replace(" -> ", ".");
                 startingCity = readText[i].Split('.')[0];
                 destination = readText[i].Split('.')[1] + ", ";
 
-                if (flights.ContainsKey(startingCity)) { flights[startingCity] += destination; }
-                else { flights.Add(startingCity, destination); }
+                if (_flights.ContainsKey(startingCity))
+                {
+                    if (!_flights[startingCity].Equals(destination))
+                    {
+                        _flights[startingCity] += destination;
+                    }
+                }
+                else { _flights.Add(startingCity, destination); }
             }
+
+            RemoveComasFromLastItems();
         }
 
-        private static void ShowAllAvailableFlights(Dictionary<string, string> flights)
+        private void RemoveComasFromLastItems()
         {
-            foreach (KeyValuePair<string, string> flight in flights)
+            var tempFlights = new Dictionary<string, string>(_flights);
+            foreach (KeyValuePair<string, string> flight in _flights)
             {
-                var destinations = flight.Value.Remove(flight.Value.Length - 2).Trim();
-                Console.WriteLine(flight.Key + " -> " + destinations + "\b");
+                tempFlights[flight.Key] = _flights[flight.Key].Remove(_flights[flight.Key].Length - 2);
             }
+            _flights = new Dictionary<string, string>(tempFlights);
+        }
+    }
+
+
+    class Program
+    {
+        private const string Path = @"../../flights.txt";
+
+        private static void Main(string[] args)
+        {
+            Flights flightPlanner = new Flights();
+            var readText = File.ReadAllText(Path);
+            string startingCity;
+            string destination;
+
+            flightPlanner.ConvertFlightsToDictionary(readText);
+
+            Console.WriteLine("What would you like to do?\n" +
+                "To display list of cities press 1:\n" +
+                "To exit program press #");
+
+            bool runLoop = Console.ReadLine() == "1";
+
+            Console.WriteLine(flightPlanner.GetAllAvailableFlights());
+
+            Console.Write("\nInput the city you wish to start from: ");
+
+            startingCity = Console.ReadLine();
+            flightPlanner.VisitCity(startingCity);
+
+            Console.WriteLine("Available Cities: " + flightPlanner.GetAvailableCities(startingCity));
+
+            while (runLoop)
+            {
+                Console.Write("\nInput the city you wish to go to: ");
+                destination = Console.ReadLine();
+
+                if (destination == startingCity) { flightPlanner.VisitCity(destination); break; }
+
+                flightPlanner.VisitCity(destination);
+                Console.WriteLine("Available cities: " + flightPlanner.GetAvailableCities(destination));
+            }
+
+            Console.WriteLine();
+            Console.Write("Your flight route: " + flightPlanner.GetVisitedCities());
+
+            Console.ReadKey();
         }
     }
 }

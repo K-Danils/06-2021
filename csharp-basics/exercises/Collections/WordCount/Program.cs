@@ -6,22 +6,55 @@ using System.Threading.Tasks;
 
 namespace WordCount
 {
+    public class WordCounter
+    {
+        public WordCounter()
+        {
+        }
+
+        public int CountWords(string text)
+        {
+            if (String.IsNullOrEmpty(text)) { return 0; }
+            
+            var words = text.Replace("\r\n", " ").Split(' ');
+            int count = words.ToList().Where(x => !String.IsNullOrEmpty(x)).Count();
+
+            // count the words separated by ', for example it's => it is
+            count += text.Split('\'').Length - 1;
+
+            return count;
+        }
+
+        public int CountCharacters(string text)
+        {
+            if (String.IsNullOrEmpty(text)) { return 0; }
+
+            return text.Replace("\r\n", "").Length;
+        }
+
+        public int CountLines(string text)
+        {
+            if (String.IsNullOrEmpty(text)) { return 0; }
+
+            return text.Split('\n').Length;
+        }
+    }
+
     class Program
     {
+       
         static void Main(string[] args)
         {
-            string path = @"E:\codelex\CODELEX_UZDEVUMI\06-2021\csharp-basics\exercises\Collections\WordCount\lear.txt";
+            string path = @"../../lear.txt";
             string text = System.IO.File.ReadAllText(path);
-            var lines = System.IO.File.ReadAllLines(path);
-            string[] words = text.Replace("\r\n", " ").Split(' ');
-            string[] words2 = text.Replace("\r\n", " ").Split('\'');
-            string characters = text.Replace("\r\n","");
+
+            WordCounter wc = new WordCounter();
 
             Console.WriteLine(text);
-            Console.WriteLine("Lines = " + lines.Length);
-            Console.WriteLine("Words = " + (words.Length - 1 + words2.Length - 1));
+            Console.WriteLine("Lines = " + wc.CountLines(text));
+            Console.WriteLine("Words = " + wc.CountWords(text));
+            Console.WriteLine("Chars = " + wc.CountCharacters(text));
 
-            Console.WriteLine("Chars = " + characters.Length);
             Console.ReadKey();
         }
     }

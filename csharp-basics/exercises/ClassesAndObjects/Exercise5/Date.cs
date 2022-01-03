@@ -6,22 +6,39 @@ using System.Threading.Tasks;
 
 namespace Exercise5
 {
-    class Date
+    public class Date
     {
-        public int month { get; set; }
-        public int day { get; set; }
-        public int year { get; set; }
+        private int _month { get; set; }
+        private int _day { get; set; }
+        private int _year { get; set; }
+
+        public int Month
+        {
+            get => _month;
+            set => _month = (value > 0 && value <= 12) ? value : throw new Exception("Date out of bounds");
+        }
+
+        public int Day
+        {
+            get => _day;
+            set => _day = (value > 0 && value <= 31) ? value : throw new Exception("Date out of bounds");
+        }
+        public int Year
+        {
+            get => _year;
+            set => _year = (value >= 0 && value <= 9999) ? value : throw new Exception("Date out of bounds");
+        }
 
         public Date(int day, int month, int year)
         {
-            this.day = day;
-            this.month = month;
-            this.year = year;
+            Day = day;
+            Month = month;
+            Year = year;
         }
 
-        public void DisplayDate()
+        public string GetDate()
         {
-            Console.WriteLine("{0}/{1}/{2}", day, month, year);
+            return $"{_day}/{_month}/{_year}";
         }
     }
 }

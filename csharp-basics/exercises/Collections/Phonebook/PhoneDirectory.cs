@@ -12,21 +12,16 @@ namespace PhoneBook
 
         public string GetNumber(string name) 
         {
-            if (_data.ContainsKey(name)) 
-            {
-                return _data[name];
-            } 
-            else 
-            {
-                return null;
-            }
+            if (String.IsNullOrEmpty(name)) { throw new ArgumentNullException(); }
+
+            return _data.ContainsKey(name) ? _data[name] : throw new Exception("Name is non existing.");
         }
 
         public void PutNumber(string name, string number) 
         {
-            if (name == null || number == null) 
+            if (String.IsNullOrEmpty(name) || String.IsNullOrEmpty(number)) 
             {
-                throw new Exception("name and number cannot be null");
+                throw new Exception("Name or number cannot be null or empty.");
             }
 
             if (_data.ContainsKey(name)) 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DragRace
 {
-    class Alpine : Car
+    public class Alpine : Car
     {
         override public int SpeedIncrease { get;}
         override public int SpeedDecrease { get;}

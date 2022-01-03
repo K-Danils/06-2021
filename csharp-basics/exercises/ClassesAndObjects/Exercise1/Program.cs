@@ -6,22 +6,39 @@ using System.Threading.Tasks;
 
 namespace Exercise1
 {
-    class Product
+    public class Product
     {
-        public double price;
-        public int amount;
-        string name;
+        private double _price;
+        private int _amount;
+        private string _name;
+
+        public int Amount { get => _amount; }
+        public double Price { get => _price; }
+        public string Name { get => _name; }
 
         public Product(string name, double price, int amount)
         {
-            this.price = price;
-            this.amount = amount;
-            this.name = name;
+            _price = price > 0 ? price : throw new Exception("Price must be above 0");
+            _amount = amount >= 0 ? amount : throw new Exception("Amount must be positive");
+            _name = !String.IsNullOrEmpty(name) ? name : throw new Exception("Product name must not be empty or null");
         }
 
-        public void PrintProduct()
+        public string PrintProduct()
         {
-            Console.WriteLine("{0}, price {1:.##}, amount {2}", this.name, this.price, this.amount);
+            string formatedPrice = Math.Round(_price, 2).ToString();
+            return $"{_name}, price {formatedPrice}, amount {_amount}\n";
+        }
+
+        public void ChangePrice(double newPrice)
+        {
+            if (newPrice < 0) { throw new Exception("Price can not be negative"); }
+            _price = newPrice;
+        }
+
+        public void ChangeQuantity(int newAmount)
+        {
+            if (newAmount < 0) { throw new Exception("Quantity can not be negative"); }
+            _amount = newAmount;
         }
 
     }
@@ -37,8 +54,8 @@ namespace Exercise1
             product2.PrintProduct();
             product3.PrintProduct();
 
-            product1.amount = 5;
-            product1.price = 75.99;
+            product1.ChangeQuantity(5);
+            product1.ChangePrice(75.99);
 
             Console.WriteLine("Changed product: ");
             product1.PrintProduct();

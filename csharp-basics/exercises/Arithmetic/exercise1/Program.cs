@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace exercise1
 {
-    class Program
+    public class CheckFifteen
     {
-        static bool checkFifteen(int num1, int num2)
+        public CheckFifteen()
+        {
+        }
+
+        public bool IsFifteen(int num1, int num2)
         {
             if (num1 == 15 || num2 == 15)
             {
@@ -23,13 +27,17 @@ namespace exercise1
                 return false;
             }
         }
-
+    }
+    class Program
+    {
         static void Main(string[] args)
         {
             int num1 = Int32.Parse(Console.ReadLine());
             int num2 = Int32.Parse(Console.ReadLine());
 
-            Console.WriteLine(checkFifteen(num1, num2));
+            CheckFifteen cf = new CheckFifteen();
+
+            Console.WriteLine(cf.IsFifteen(num1, num2));
             Console.ReadLine();
 
         }

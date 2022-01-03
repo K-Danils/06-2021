@@ -10,15 +10,15 @@ namespace Exercise5
     {
         static void Main(string[] args)
         {
-            Date date = new Date(12,12,2001);
+            Date date = new Date(32,12,2001);
 
-            date.DisplayDate();
+            date.GetDate();
 
-            date.day = 21;
-            date.month = 3;
-            date.year = 2100;
+            date.Day = 31;
+            date.Month = 3;
+            date.Year = 2100;
 
-            date.DisplayDate();
+            date.GetDate();
 
             Console.ReadKey();
         }
