@@ -40,12 +40,5 @@ namespace Account
         {
             return $"{Name}: {_money}";
         }
-
-        public static void Transfer(AccountCreator from, AccountCreator to, double howMuch)
-        {
-            if (howMuch < 0) { throw new Exception("Can not transfer negative values"); }
-            to.Deposit(howMuch);
-            from.Withdrawal(howMuch);
-        }
     }
 }

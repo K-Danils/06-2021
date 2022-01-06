@@ -13,6 +13,7 @@ namespace DragRaceTests
         [TestMethod]
         public void StartRace_ListOfAllCars_FastestSpeedShouldBe180()
         {
+            // Arrange
             var cars = new List<Car>{
             new Alpine(),
             new Audi(),
@@ -24,8 +25,10 @@ namespace DragRaceTests
 
             _target = new DragRaceSimulation(cars);
 
+            // Act
             _target.StartRace(10);
 
+            // Assert
             Assert.AreEqual("180", _target.GetFastestCar());
         }
     }

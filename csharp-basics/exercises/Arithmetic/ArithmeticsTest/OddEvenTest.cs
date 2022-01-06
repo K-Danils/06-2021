@@ -16,7 +16,10 @@ namespace ArithmeticsTest
         [DataRow(8)]
         public void IsEven_EvenNum_ShouldReturnTrue(int num)
         {
+            // Arrange
             _target = new OddEven();
+
+            // Assert
             Assert.IsTrue(_target.IsEven(num));
         }
 
@@ -28,7 +31,10 @@ namespace ArithmeticsTest
         [DataRow(11)]
         public void IsEven_OddNum_ShouldReturnFalse(int num)
         {
+            // Arrange
             _target = new OddEven();
+
+            // Assert
             Assert.IsFalse(_target.IsEven(num));
         }
     }

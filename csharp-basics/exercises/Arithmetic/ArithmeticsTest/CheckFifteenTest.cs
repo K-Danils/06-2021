@@ -14,6 +14,7 @@ namespace ArithmeticsTest
         [DataRow(7, 8)]
         public void IsFifteen_NumbersThatResultIn15_ReturnsTrue(int num1, int num2)
         {
+            // Assert
             Assert.IsTrue(_target.IsFifteen(num1, num2));
         }
 
@@ -22,6 +23,7 @@ namespace ArithmeticsTest
         [DataRow(10, 10)]
         public void IsFifteen_NumbersThatDontIn15_10_False(int num1, int num2)
         {
+            // Assert
             Assert.IsFalse(_target.IsFifteen(num1, num2));
         }
     }

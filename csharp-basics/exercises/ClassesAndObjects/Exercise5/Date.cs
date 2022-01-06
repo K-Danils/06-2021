@@ -8,9 +8,9 @@ namespace Exercise5
 {
     public class Date
     {
-        private int _month { get; set; }
-        private int _day { get; set; }
-        private int _year { get; set; }
+        private int _month;
+        private int _day;
+        private int _year;
 
         public int Month
         {
@@ -26,7 +26,7 @@ namespace Exercise5
         public int Year
         {
             get => _year;
-            set => _year = (value >= 0 && value <= 9999) ? value : throw new Exception("Date out of bounds");
+            set => _year = (value > 0 && value <= 9999) ? value : throw new Exception("Date out of bounds");
         }
 
         public Date(int day, int month, int year)

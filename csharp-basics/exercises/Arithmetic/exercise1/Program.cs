@@ -14,18 +14,9 @@ namespace exercise1
 
         public bool IsFifteen(int num1, int num2)
         {
-            if (num1 == 15 || num2 == 15)
-            {
-                return true;
-            }
-            if (num1 + num2 == 15 || num1 - num2 == 15 || num2 - num1 == 15)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return num1 == 15 || num2 == 15 || 
+                num1 + num2 == 15 || num1 - num2 == 15 || 
+                num2 - num1 == 15 ? true : false;
         }
     }
     class Program

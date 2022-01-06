@@ -13,7 +13,6 @@ namespace exercise8
         readonly decimal legalMinWage = 8.0m;
         readonly decimal legalOvertimeModifier = 1.5m;
 
-
         public decimal CalculateSalary(decimal basePay, int workedHours)
         {
             if (basePay < legalMinWage)
