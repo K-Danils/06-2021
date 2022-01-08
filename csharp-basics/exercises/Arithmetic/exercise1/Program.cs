@@ -6,30 +6,30 @@ using System.Threading.Tasks;
 
 namespace exercise1
 {
-    class Program
+    public class CheckFifteen
     {
-        static bool checkFifteen(int num1, int num2)
+        public CheckFifteen()
         {
-            if (num1 == 15 || num2 == 15)
-            {
-                return true;
-            }
-            if (num1 + num2 == 15 || num1 - num2 == 15 || num2 - num1 == 15)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
         }
 
+        public bool IsFifteen(int num1, int num2)
+        {
+            return num1 == 15 || num2 == 15 || 
+                num1 + num2 == 15 || num1 - num2 == 15 || 
+                num2 - num1 == 15;
+        }
+    }
+
+    class Program
+    {
         static void Main(string[] args)
         {
             int num1 = Int32.Parse(Console.ReadLine());
             int num2 = Int32.Parse(Console.ReadLine());
 
-            Console.WriteLine(checkFifteen(num1, num2));
+            CheckFifteen cf = new CheckFifteen();
+
+            Console.WriteLine(cf.IsFifteen(num1, num2));
             Console.ReadLine();
 
         }

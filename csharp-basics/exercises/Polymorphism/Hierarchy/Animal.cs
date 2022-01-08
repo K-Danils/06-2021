@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hierarchy
 {
-    public class Animal
+    public abstract class Animal
     {
         private string _animalName;
         private string _animalType;

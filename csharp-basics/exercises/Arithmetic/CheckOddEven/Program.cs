@@ -6,11 +6,20 @@ using System.Threading.Tasks;
 
 namespace CheckOddEven
 {
-    class Program
+    public class OddEven
     {
-        static void CheckOddEven(int number)
+        public OddEven()
         {
-            if (number % 2 == 0)
+        }
+
+        public bool IsEven(int number)
+        {
+            return number % 2 == 0;
+        }
+
+        public void PrintIsEven(int number)
+        {
+            if (IsEven(number))
             {
                 Console.WriteLine("Even Number");
             }
@@ -20,9 +29,13 @@ namespace CheckOddEven
             }
         }
 
+    }
+    class Program
+    {
         static void Main(string[] args)
         {
-            CheckOddEven(Int32.Parse(Console.ReadLine()));
+            OddEven oddEven = new OddEven();
+            oddEven.PrintIsEven(Int32.Parse(Console.ReadLine()));
             Console.ReadLine();
             Console.WriteLine("bye!");
         }

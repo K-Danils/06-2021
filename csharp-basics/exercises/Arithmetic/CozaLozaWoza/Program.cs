@@ -1,51 +1,66 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CozaLozaWoza
 {
+    public class CozaLoza
+    {
+        public CozaLoza()
+        {
+        }
+
+        public string DetermineCozaLozaWoza(int num)
+        {
+            if (num % 3 == 0 && num % 5 == 0)
+            {
+                return "CozaLoza";
+            }
+            else if (num % 3 == 0 && num % 7 == 0)
+            {
+                return "CozaWoza";
+            }
+            else if (num % 5 == 0 && num % 7 == 0)
+            {
+                return "LozaWoza";
+            }
+            else if (num % 3 == 0)
+            {
+                return "Coza";
+            }
+            else if (num % 5 == 0)
+            {
+                return "Loza";
+            }
+            else if (num % 7 == 0)
+            {
+                return "Woza";
+            }
+            else
+            {
+                return num.ToString();
+            }
+        }
+
+        public void PrintCozaLozaWoza(int rows, int lineLength)
+        {
+            int j = 1;
+            for (int i = 1; i <= rows; i++)
+            {
+                for (; j <= lineLength * i; j++)
+                {
+                    Console.Write(DetermineCozaLozaWoza(j) + " ");
+                }
+                Console.WriteLine();
+            }
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
         {
-            int j = 1;
-            for (int i = 1; i <= 10; i++)
-            {
-                for (; j <= 11*i; j++)
-                {
-                    if (j%3 == 0 && j%5 == 0)
-                    {
-                        Console.Write("CozaLoza ");
-                    }
-                    else if (j % 3 == 0 && j % 7 == 0)
-                    {
-                        Console.Write("CozaWoza ");
-                    }
-                    else if (j % 5 == 0 && j % 7 == 0)
-                    {
-                        Console.Write("LozaWoza ");
-                    }
-                    else if (j % 3 == 0)
-                    {
-                        Console.Write("Coza ");
-                    }
-                    else if (j % 5 == 0)
-                    {
-                        Console.Write("Loza ");
-                    }
-                    else if (j % 7 == 0)
-                    {
-                        Console.Write("Woza ");
-                    }
-                    else
-                    {
-                        Console.Write(j+" ");
-                    }
-                }
-                Console.WriteLine();
-            }
+            CozaLoza cl = new CozaLoza();
+
+            cl.PrintCozaLozaWoza(10,11);
             Console.ReadLine();
         }
     }

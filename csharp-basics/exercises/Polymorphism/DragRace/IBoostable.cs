@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DragRace
 {
-    interface IBoostable
+    public interface IBoostable
     {
         void UseNitrousOxideEngine();
     }

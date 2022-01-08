@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Exercise5
 {
-    class Date
+    public class Date
     {
         private int _month;
         private int _day;
@@ -15,31 +15,30 @@ namespace Exercise5
         public int Month
         {
             get => _month;
-            set => _month = value;
+            set => _month = (value > 0 && value <= 12) ? value : throw new Exception("Date out of bounds");
         }
 
         public int Day
         {
             get => _day;
-            set => _day = value;
+            set => _day = (value > 0 && value <= 31) ? value : throw new Exception("Date out of bounds");
         }
-
         public int Year
         {
             get => _year;
-            set => _year = value;
+            set => _year = (value > 0 && value <= 9999) ? value : throw new Exception("Date out of bounds");
         }
 
         public Date(int day, int month, int year)
         {
-            _day = day;
-            _month = month;
-            _year = year;
+            Day = day;
+            Month = month;
+            Year = year;
         }
 
-        public void DisplayDate()
+        public string GetDate()
         {
-            Console.WriteLine("{0}/{1}/{2}", _day, _month, _year);
+            return $"{_day}/{_month}/{_year}";
         }
     }
 }

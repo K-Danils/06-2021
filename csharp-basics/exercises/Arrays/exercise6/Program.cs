@@ -10,30 +10,15 @@ namespace exercise6
     {
         static void Main(string[] args)
         {
-            Random ran = new Random();
-            int[] arr1 = new int[10];
-            
-            for (int i = 0; i < arr1.Length; i++)
-            {
-                arr1[i] = ran.Next(0,100) + 1;
-            }
+            RandomArrays ranArr = new RandomArrays();
 
-            int[] arr2 = new int[arr1.Length];
+            ranArr.FillFirstArray();
+            ranArr.FillSecondArray();
+            ranArr.FirstArrSwitchLastToNegativeSeven();
 
-            for (int i = 0; i < arr1.Length; i++)
-            {
-                // in case if arr2 is shorter than arr1
-                if (i >= arr2.Length) { break; }
-
-                arr2[i] = arr1[i];
-            }
-
-            arr1[arr1.Length - 1] = -7;
-
-            Console.WriteLine("Array 1: " + string.Join(" ", arr1));
-            Console.WriteLine("Array 2: " + string.Join(" ", arr2));
-
-            Console.Read();
+            Console.WriteLine(ranArr.PrintArray(ranArr.Arr1));
+            Console.WriteLine(ranArr.PrintArray(ranArr.Arr2));
+            Console.ReadLine();
         }
     }
 }

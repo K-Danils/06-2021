@@ -6,12 +6,22 @@ using System.Threading.Tasks;
 
 namespace Account
 {
+    public class TransferMoney
+    {
+        public static void Transfer(AccountCreator from, AccountCreator to, double howMuch)
+        {
+            if (howMuch < 0) { throw new Exception("Can not transfer negative values"); }
+            to.Deposit(howMuch);
+            from.Withdrawal(howMuch);
+        }
+    }
+
     class Program
     {
         private static void Main(string[] args)
         {
-            Account mattsAccount = new Account("Matt's account", 1000);
-            Account myAccount = new Account("My Account", 0);
+            AccountCreator mattsAccount = new AccountCreator("Matt's account", 1000);
+            AccountCreator myAccount = new AccountCreator("My Account", 0);
 
             mattsAccount.Withdrawal(100);
             myAccount.Deposit(100);
@@ -19,24 +29,18 @@ namespace Account
             Console.WriteLine(mattsAccount.Balance());
             Console.WriteLine(myAccount.Balance());
 
-            Account A = new Account("A", 100);
-            Account B = new Account("B", 0);
-            Account C = new Account("C", 0);
+            AccountCreator A = new AccountCreator("A", 100);
+            AccountCreator B = new AccountCreator("B", 0);
+            AccountCreator C = new AccountCreator("C", 0);
 
-            Transfer(ref A, ref B, 50);
-            Transfer(ref B, ref C, 25);
+            TransferMoney.Transfer(A, B, 50);
+            TransferMoney.Transfer(B, C, 25);
 
             Console.WriteLine(A.Balance());
             Console.WriteLine(B.Balance());
             Console.WriteLine(C.Balance());
 
             Console.ReadLine();
-        }
-
-        public static void Transfer(ref Account from, ref Account to, double howMuch)
-        {
-            to.Deposit(howMuch);
-            from.Withdrawal(howMuch);
         }
     }
 }

@@ -6,44 +6,45 @@ using System.Threading.Tasks;
 
 namespace exercise8
 {
-    class Program
+    public class SalaryCalculator
     {
-        static void CalculateSalary(float basePay, int workedHours)
+        readonly int legalLimitHours = 60;
+        readonly int nonOvertimeHours = 40;
+        readonly decimal legalMinWage = 8.0m;
+        readonly decimal legalOvertimeModifier = 1.5m;
+
+        public decimal CalculateSalary(decimal basePay, int workedHours)
         {
-            const int legalLimitHours = 60;
-            const int nonOvertimeHours = 40;
-            const float legalMinWage = 8.0f;
-            const float legalOvertimeModifier = 1.5f;
-            
-            if(basePay < legalMinWage)
+            if (basePay < legalMinWage)
             {
-                Console.WriteLine("ERROR - The base pay is too little");
+                throw new Exception("ERROR - The base pay is too little");
             }
             else if (workedHours > legalLimitHours)
             {
-                Console.WriteLine("ERROR - Too many hours worked");
+                throw new Exception("ERROR - Too many hours worked");
             }
             else
             {
-                if (workedHours <= nonOvertimeHours) { Console.WriteLine("$" + (workedHours * basePay)); }
+                if (workedHours <= nonOvertimeHours) { return workedHours * basePay;}
                 else
                 {
                     int extraHours = workedHours - nonOvertimeHours;
-                    float extraPay = legalOvertimeModifier * basePay;
-                    float total = (nonOvertimeHours * basePay) + (extraHours * extraPay);
-                    Console.WriteLine("$" + total);
+                    decimal extraPay = legalOvertimeModifier * basePay;
+                    decimal total = (nonOvertimeHours * basePay) + (extraHours * extraPay);
+                    return total;
                 }
             }
         }
-
+    }
+    class Program
+    {
         static void Main(string[] args)
         {
-            Console.Write("Employee {0}, Total pay ", 1);
-            CalculateSalary(7.5f, 35);
-            Console.Write("Employee {0}, Total pay ", 2);
-            CalculateSalary(8.2f, 47);
-            Console.Write("Employee {0}, Total pay ", 3);
-            CalculateSalary(10.0f, 73);
+            SalaryCalculator salary = new SalaryCalculator();
+
+            Console.Write("Employee {0}, Total pay ${1}", 1, salary.CalculateSalary(7.5m, 35));
+            Console.Write("Employee {0}, Total pay ${1}", 2, salary.CalculateSalary(8.2m, 47));
+            Console.Write("Employee {0}, Total pay ${1}", 3, salary.CalculateSalary(10.0m, 73));
             Console.ReadKey();
         }
     }

@@ -6,6 +6,50 @@ using System.Threading.Tasks;
 
 namespace DragRace
 {
+    public class DragRaceSimulation
+    {
+        private List<Car> _cars;
+
+        public DragRaceSimulation(List<Car> cars)
+        {
+            _cars = cars;
+        }
+
+        public void StartRace(int length)
+        {
+            for (int i = 1; i <= length; i++)
+            {
+                foreach (var car in _cars)
+                {
+                    if (i == 1) { car.StartEngine(); continue; }
+
+                    else if (i == 3)
+                    {
+                        if (car is IBoostable)
+                        {
+                            ((IBoostable)car).UseNitrousOxideEngine();
+                            continue;
+                        }
+                    }
+                    car.SpeedUp();
+                }
+            }
+        }
+
+        public void ShowAllSpeeds()
+        {
+            _cars.ForEach(car => Console.WriteLine(car.GetType().Name + " : " + car.ShowCurrentSpeed()));
+        }
+
+        public string GetFastestCar()
+        {
+            var fastestCar = int.Parse(_cars[0].ShowCurrentSpeed());
+
+            _cars.ForEach(car => fastestCar = int.Parse(car.ShowCurrentSpeed()) > fastestCar ? int.Parse(car.ShowCurrentSpeed()) : fastestCar);
+
+            return fastestCar.ToString();
+        }
+    }
     class Program
     {
         /**
@@ -30,32 +74,12 @@ namespace DragRace
             new Toyota(),
             };
 
-            for (int i = 1; i <= 10; i++)
-            {
-                foreach (var car in cars)
-                {
-                    if (i == 1) { car.StartEngine(); continue; }
+            DragRaceSimulation dragRace = new DragRaceSimulation(cars);
 
-                    if (i == 3)
-                    {
-                        if (car is IBoostable)
-                        {
-                            ((IBoostable)car).UseNitrousOxideEngine();
-                            continue;
-                        }
-                    }
+            dragRace.StartRace(10);
+            dragRace.ShowAllSpeeds();
+            Console.WriteLine("Fastest speed: " + dragRace.GetFastestCar());
 
-                    car.SpeedUp();
-                }
-            }
-
-            cars.ForEach(car => Console.WriteLine(car.GetType().Name + " : " +car.ShowCurrentSpeed()));
-
-            var fastestCar = int.Parse(cars[0].ShowCurrentSpeed());
-
-            cars.ForEach(car => fastestCar = int.Parse(car.ShowCurrentSpeed()) > fastestCar ? int.Parse(car.ShowCurrentSpeed()) : fastestCar);
-
-            Console.WriteLine("Fastest speed: " + fastestCar);
             Console.ReadKey();
         }
     }
