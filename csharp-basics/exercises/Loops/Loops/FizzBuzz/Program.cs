@@ -8,12 +8,12 @@ namespace FizzBuzz
 {
     public class FizzBuzz
     {
-        private int num;
+        private int _num;
 
         public FizzBuzz()
         {
             Console.Write("Max value? ");
-            this.num = int.Parse(Console.ReadLine());
+            this._num = int.Parse(Console.ReadLine());
             PrintFizzBuzz();
         }
 
@@ -21,7 +21,7 @@ namespace FizzBuzz
         {
             int count = 0;
 
-            for (int i = 1; i <= num; i++, count++)
+            for (int i = 1; i <= _num; i++, count++)
             {
                 if (count % 20 == 0)
                 {

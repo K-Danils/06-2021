@@ -9,7 +9,7 @@ namespace Exercise3
     class FuelGauge
     {
         int liters;
-        int maxLiters = 70;
+        const int maxLiters = 70;
 
         public FuelGauge(int liters)
         {

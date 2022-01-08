@@ -3,12 +3,12 @@
     public class Car
     {
         double startKilometers;
-        public double endKilomteters;
-        public double liters;
+        double endKilomteters;
+        double liters;
 
         public Car(double startOdo)
         {
-            this.startKilometers = startOdo;
+            startKilometers = startOdo;
         }
 
         public double CalculateConsumption()
@@ -34,7 +34,7 @@
         public void FillUp(int mileage, double liters)
         {
             this.liters = liters;
-            this.endKilomteters = mileage;
+            endKilomteters = mileage;
         }
     }
 }

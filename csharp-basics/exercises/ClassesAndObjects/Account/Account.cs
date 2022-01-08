@@ -20,7 +20,7 @@ namespace Account
             i = i < 0 ? i * -1 : i;
 
             _money = _money - i > 0 ?  _money -= i : throw new Exception("Not enough money");
-
+          
             return _money;
         }
 

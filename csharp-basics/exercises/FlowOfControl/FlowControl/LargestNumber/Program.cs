@@ -16,9 +16,13 @@ namespace LargestNumber
             Console.WriteLine("Input the 3rd number: ");
             var input3 = Console.ReadLine();
 
-            if (double.Parse(input1) <= double.Parse(input2))
+            var num1 = double.Parse(input1);
+            var num2 = double.Parse(input2);
+            var num3 = double.Parse(input3);
+
+            if (num1 <= num2)
             {
-                if (double.Parse(input2) <= double.Parse(input3))
+                if (num2 <= num3)
                 {
                     Console.WriteLine("Largest number is: " + input3);
                 }
@@ -27,7 +31,7 @@ namespace LargestNumber
                     Console.WriteLine("Largest number is: " + input2);
                 }
             }
-            else if (double.Parse(input1) <= double.Parse(input3))
+            else if (num1 <= num3)
             {
                 Console.WriteLine("Largest number is: " + input3);
             }

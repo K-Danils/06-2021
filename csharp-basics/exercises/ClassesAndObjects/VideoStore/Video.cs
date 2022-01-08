@@ -4,45 +4,45 @@ namespace VideoStore
 {
     class Video
     {
-        bool isCheckedOut;
-        List<double> ratings = new List<double>();
-        public string Title { get; }
+        private bool _isCheckedOut;
+        private List<double> _ratings = new List<double>();
+        public string Title { get; private set; }
 
         public Video(string title)
         {
-            this.Title = title;
+            Title = title;
         }
 
         public void BeingCheckedOut()
         {
-            isCheckedOut = true;
+            _isCheckedOut = true;
         }
 
         public void BeingReturned()
         {
-            isCheckedOut = false;
+            _isCheckedOut = false;
         }
 
         public void ReceivingRating(double rating)
         {
-            ratings.Add(rating);
+            _ratings.Add(rating);
         }
 
         public double AverageRating()
         {
             double sum = 0;
 
-            foreach (double rating in ratings)
+            foreach (double rating in _ratings)
             {
                 sum += rating;
             }
 
-            return sum/ratings.Count;
+            return sum/_ratings.Count;
         }
 
         public bool Available()
         {
-            return !isCheckedOut;
+            return !_isCheckedOut;
         }
 
         public override string ToString()

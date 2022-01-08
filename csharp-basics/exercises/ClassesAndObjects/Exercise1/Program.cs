@@ -41,7 +41,12 @@ namespace Exercise1
             _amount = newAmount;
         }
 
+        public void ChangePrice(double amount)
+        {
+            _price = amount;
+        }
     }
+
     class Program
     {
         static void Main(string[] args)

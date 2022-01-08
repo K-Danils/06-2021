@@ -11,28 +11,34 @@ namespace exercise3
         static void Main(string[] args)
         {
             Random ran = new Random();
-            int[] randomArr = new int[21];
+            int[] randomArr = new int[20];
 
-            for (int i = 0; i < 21; i++)
+            for (int i = 0; i < 20; i++)
             {
                 randomArr[i] = ran.Next(0,101);
             }
-            while (true)
+
+            Console.WriteLine("Numbers: ");
+
+            foreach (int element in randomArr) { Console.Write(element + " "); }
+
+            Console.Write("\nInput the number to get its position: ");
+            
+            int input = int.Parse(Console.ReadLine());
+            Console.WriteLine();
+
+            int index = Array.IndexOf(randomArr, input);
+
+            if (index > -1)
             {
-                Console.Write("Input the position: ");
-
-                int input = int.Parse(Console.ReadLine());
-                Console.WriteLine();
-
-                if (input >= 0 && input <= 20)
-                {
-                    Console.WriteLine("Number at {0} is {1}", input, randomArr[input]);
-                }
-                else
-                {
-                    Console.WriteLine("Number is out of range\n");
-                }
+                Console.WriteLine("Number {0} is at position {1}", input, index + 1);
             }
+            else
+            {
+                Console.WriteLine("Number is out of range\n");
+            }
+
+            Console.ReadKey();
         }
     }
 }

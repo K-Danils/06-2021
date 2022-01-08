@@ -20,8 +20,8 @@ namespace Casting
             string a = "1";
             int b = 2;
             int c = 3;
-            double d = 4.0;
-            float e = 5f;
+            double d = 4;
+            float e = 5;
 
             int sum = int.Parse(a) + b + c + (int)d + (int)e;
             Console.WriteLine(sum);
