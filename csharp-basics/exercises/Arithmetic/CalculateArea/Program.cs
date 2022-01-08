@@ -17,7 +17,6 @@ namespace CalculateArea
         public static int GetMenu()
         {
             int userChoice = 0;
-            
 
             // Display the menu.
             Console.WriteLine("Geometry Calculator\n");
@@ -53,7 +52,6 @@ namespace CalculateArea
                 Console.WriteLine("Command not found");
             }
             
-
             return userChoice;
         }
 
@@ -73,8 +71,6 @@ namespace CalculateArea
             decimal length = 0;
             decimal width = 0;
 
-            // Get input from user
-
             // Get length
             Console.WriteLine("Enter length? ");
             length = Int32.Parse(Console.ReadLine());
@@ -93,12 +89,9 @@ namespace CalculateArea
             decimal ground = 0;
             decimal height = 0;
 
-            // Get input from user
-
             // Get the base
             Console.WriteLine("Enter length of the triangle's base? ");
             ground = Int32.Parse(Console.ReadLine());
-
 
             // Get the height
             Console.WriteLine("Enter triangle's height? ");

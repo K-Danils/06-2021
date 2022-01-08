@@ -36,7 +36,6 @@ namespace HierarchyTests
 
             // Assert
             Assert.AreEqual(exception.Message, "Not enough / too much information has been given");
-            
         }
 
         [TestMethod]
@@ -48,7 +47,6 @@ namespace HierarchyTests
 
             // Assert
             Assert.AreEqual(exception.Message, "Not enough / too much information has been given");
-
         }
 
         [TestMethod]

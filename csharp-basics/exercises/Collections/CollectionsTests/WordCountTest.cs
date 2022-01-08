@@ -80,7 +80,5 @@ namespace CollectionsTests
             // Assert
             Assert.AreEqual(0, _target.CountCharacters(null));
         }
-
-
     }
 }

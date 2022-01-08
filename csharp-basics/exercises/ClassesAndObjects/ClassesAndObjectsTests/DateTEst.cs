@@ -69,7 +69,6 @@ namespace ClassesAndObjectsTests
 
             // Assert
             Assert.AreEqual(exception.Message, "Date out of bounds");
-            
         }
 
         [TestMethod]
@@ -84,7 +83,6 @@ namespace ClassesAndObjectsTests
 
             // Assert
             Assert.AreEqual(exception.Message, "Date out of bounds");
-            
         }
 
         [TestMethod]
